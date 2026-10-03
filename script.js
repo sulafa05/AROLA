@@ -1,4 +1,20 @@
 // ===================== Product Data =====================
+const imageFallbackPath = "images/Women.png";
+
+function applyImageFallback(image) {
+  if (image.dataset.fallbackApplied) return;
+  image.dataset.fallbackApplied = "true";
+  image.src = imageFallbackPath;
+}
+
+document.addEventListener("error", event => {
+  if (event.target instanceof HTMLImageElement) applyImageFallback(event.target);
+}, true);
+
+document.querySelectorAll("img").forEach(image => {
+  if (image.complete && image.naturalWidth === 0) applyImageFallback(image);
+});
+
 const newInProducts = [
   { name: "Wool Blend Coat", price: "$128.00", img: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?q=80&w=600&auto=format&fit=crop", colors: ["#1c1c1c", "#c9b79c", "#7a5c45"] },
   { name: "Satin Slip Dress", price: "$74.00", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600&auto=format&fit=crop", colors: ["#4f3b2c", "#141210", "#e6dccb"] },
