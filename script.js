@@ -213,6 +213,20 @@ if (womenProductGrid) {
       }
     },
     {
+      id: "blue-floral-cutout-halter-mini-dress",
+      name: "Blue Floral Cutout Halter Mini Dress",
+      price: 54,
+      categories: ["dresses", "going-out"],
+      colors: ["blue"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      image: "dress/Blue Floral Cutout Halter Mini Dress.png",
+      description: "A blue and white floral cutout halter mini dress.",
+      details: "Blue and white floral print, cutout detail, and halter neckline.",
+      variants: {
+        blue: { name: "Blue and White", front: "dress/Blue Floral Cutout Halter Mini Dress.png", back: "dress/Blue Floral Cutout Halter Mini Dress back.png" }
+      }
+    },
+    {
       id: "ruched-mock-neck-mini-dress",
       name: "Ruched Mock Neck Mini Dress",
       price: 29,
