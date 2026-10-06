@@ -199,29 +199,16 @@ if (womenProductGrid) {
     },
     {
       id: "blue-floral-halter-tiered-dress",
-      name: "Blue Floral Tiered Mini Dress",
+      name: "Floral Ruched Sundress",
       price: 50,
       categories: ["dresses", "going-out"],
-      colors: ["blue"],
+      colors: ["blue", "pink"],
       sizes: ["XS", "S", "M", "L", "XL"],
       image: "dress/Blue Floral Ruched Mini Dress.png",
-      description: "A blue floral halter mini dress with a ruched bodice and tiered skirt.",
-      details: "Halter neckline, ruched bodice, blue floral print, and tiered mini skirt.",
+      description: "A floral halter mini dress with a ruched bodice and tiered skirt.",
+      details: "Halter neckline, ruched bodice, floral print, and tiered mini skirt.",
       variants: {
-        blue: { name: "Blue Floral", front: "dress/Blue Floral Ruched Mini Dress.png", back: "dress/Blue Floral Ruched Summer Sundress back.png" }
-      }
-    },
-    {
-      id: "pink-floral-halter-tiered-dress",
-      name: "Pink Floral Tiered Mini Dress",
-      price: 50,
-      categories: ["dresses", "going-out"],
-      colors: ["pink"],
-      sizes: ["XS", "S", "M", "L", "XL"],
-      image: "dress/bink Floral Ruched Summer Sundress.png",
-      description: "A pink floral halter mini dress with a ruched bodice and tiered skirt.",
-      details: "Halter neckline, ruched bodice, pink floral print, and tiered mini skirt.",
-      variants: {
+        blue: { name: "Blue Floral", front: "dress/Blue Floral Ruched Mini Dress.png", back: "dress/Blue Floral Ruched Summer Sundress back.png" },
         pink: { name: "Pink Floral", front: "dress/bink Floral Ruched Summer Sundress.png", back: "dress/bink Floral Ruched Summer Sundress back.png" }
       }
     },
