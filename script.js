@@ -199,19 +199,17 @@ if (womenProductGrid) {
     },
     {
       id: "floral-ruched-halter-tiered-mini-dress",
-      name: "Floral Ruched Halter Tiered Mini Dress",
+      name: "Floral Ruched Summer Sundress",
       price: 50,
       categories: ["dresses", "going-out"],
-      colors: ["blue", "pink", "yellow", "white"],
+      colors: ["blue", "pink"],
       sizes: ["XS", "S", "M", "L", "XL"],
-      image: "dress/Blue%20Floral%20Ruched%20Mini%20Dress.png",
+      image: "dress/Blue Floral Ruched Mini Dress.png",
       description: "A floral halter mini dress with a ruched bodice and a tiered skirt.",
       details: "Halter neckline, ruched bodice, floral print, and tiered mini skirt.",
       variants: {
-        blue: { name: "Blue Floral", front: "dress/Blue%20Floral%20Ruched%20Mini%20Dress.png", back: "dress/Blue%20Floral%20Ruched%20Summer%20Sundress%20back.png" },
-        pink: { name: "Pink Floral", front: "dress/bink%20Floral%20Ruched%20Summer%20Sundress.png", back: "dress/bink%20Floral%20Ruched%20Summer%20Sundress%20back.png" },
-        yellow: { name: "Yellow Floral", front: "dress/multicolor%20Lace%20Halter%20Dress%20View-1%20(2).png", back: "dress/multicolor%20Lace%20Halter%20Dress%20Back%20View-1.png" },
-        white: { name: "White", front: "dress/White%20Floral%20Lace-Up%20Halter%20Dress-2.png", back: "dress/White%20Lace%20Halter%20Dress%20Back%20View-1.png" }
+        blue: { name: "Blue Floral", front: "dress/Blue Floral Ruched Mini Dress.png", back: "dress/Blue Floral Ruched Summer Sundress back.png" },
+        pink: { name: "Pink Floral", front: "dress/bink Floral Ruched Summer Sundress.png", back: "dress/bink Floral Ruched Summer Sundress back.png" }
       }
     },
     {
