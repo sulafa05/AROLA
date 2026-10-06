@@ -208,9 +208,9 @@ if (womenProductGrid) {
       description: "A sleek sleeveless mini dress featuring a softly ruched mock neckline and a cinched waist for a flattering silhouette. Designed for parties, dinners, and elevated evening looks.",
       details: "Sleeveless mock neckline, softly ruched bodice, cinched waist, and mini length.",
       variants: {
-        black: { name: "Black", front: "dress/black%20Floral%20Ruched%20Mini%20Dress%20View.png" },
-        brown: { name: "Brown", front: "dress/brown%20Floral%20Ruched%20Mini%20Dress%20View.png" },
-        burgundy: { name: "Burgundy Floral", front: "dress/Burgundy%20Ruched%20Floral%20Bodycon%20Dress.png" }
+        black: { name: "Black", front: "dress/black%20Floral%20Ruched%20Mini%20Dress%20View.png", back: "dress/black%20Floral%20Ruched%20Mini%20Dress%20Back%20View.png" },
+        brown: { name: "Brown", front: "dress/brown%20Floral%20Ruched%20Mini%20Dress%20View.png", back: "dress/brown%20Floral%20Ruched%20Mini%20Dress%20Back%20View.png" },
+        burgundy: { name: "Burgundy Floral", front: "dress/Burgundy%20Ruched%20Floral%20Bodycon%20Dress.png", back: "dress/Burgundy%20Floral%20Ruched%20Mini%20Dress%20Back%20View.png" }
       }
     },
     {
