@@ -176,7 +176,7 @@ if (womenProductGrid) {
       variants: {
         black: { name: "Black", front: "dress/Ruched%20Black%20Bell-Sleeve%20Mini%20Dress.png", back: "dress/Black%20Ruched%20Bell-Sleeve%20Dress%20Back.png" },
         apricot: { name: "Apricot", front: "dress/Ruched%20apricot%20Bell-Sleeve%20Mini%20Dress.png", back: "dress/apricot%20Ruched%20Bell-Sleeve%20Dress%20Back.png" },
-        burgundy: { name: "Burgundy", front: "dress/Ruched%20burgundy%20Bell-Sleeve%20Mini%20Dress.png", back: "dress/Burgundy%20Ruched%20Bell-Sleeve%20Mini%20Dress-1.png" },
+        burgundy: { name: "Burgundy", front: "dress/Burgundy%20Ruched%20Bell-Sleeve%20Mini%20Dress-1.png", back: "dress/Ruched%20burgundy%20Bell-Sleeve%20Mini%20Dress.png" },
         khaki: { name: "Khaki", front: "dress/Ruched%20khaki%20Bell-Sleeve%20Mini%20Dress.png", back: "dress/khaki%20Ruched%20Bell-Sleeve%20Dress%20Back.png" }
       }
     },
