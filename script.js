@@ -198,45 +198,19 @@ if (womenProductGrid) {
       }
     },
     {
-      id: "blue-floral-halter-tiered-dress",
-      name: "Floral Ruched Sundress",
+      id: "floral-lace-halter-mini-dress",
+      name: "Floral Lace Halter Mini Dress",
       price: 35,
       categories: ["dresses", "going-out"],
-      colors: ["blue", "pink"],
+      colors: ["blue", "pink", "yellow", "white"],
       sizes: ["XS", "S", "M", "L", "XL"],
       image: "dress/Blue Floral Ruched Mini Dress.png",
-      description: "A floral halter mini dress with a ruched bodice and tiered skirt.",
-      details: "Halter neckline, ruched bodice, floral print, and tiered mini skirt.",
+      description: "A floral halter mini dress with a tiered skirt, available in four floral colorways.",
+      details: "Halter neckline and tiered mini skirt in Blue Floral, Pink Floral, Yellow Floral, and White.",
       variants: {
-        blue: { name: "Blue Floral", front: "dress/Blue Floral Ruched Mini Dress.png", back: "dress/Blue Floral Ruched Summer Sundress back.png" },
-        pink: { name: "Pink Floral", front: "dress/bink Floral Ruched Summer Sundress.png", back: "dress/bink Floral Ruched Summer Sundress back.png" }
-      }
-    },
-    {
-      id: "yellow-floral-summer-dress",
-      name: "Yellow Floral Summer Dress",
-      price: 50,
-      categories: ["dresses", "going-out"],
-      colors: ["yellow"],
-      sizes: ["XS", "S", "M", "L", "XL"],
-      image: "dress/multicolor Lace Halter Dress View-1 (2).png",
-      description: "A yellow floral summer mini dress with a halter neckline and tiered skirt.",
-      details: "Halter neckline, yellow floral print, and tiered mini skirt.",
-      variants: {
-        yellow: { name: "Yellow Floral", front: "dress/multicolor Lace Halter Dress View-1 (2).png", back: "dress/multicolor Lace Halter Dress Back View-1.png" }
-      }
-    },
-    {
-      id: "white-halter-tiered-dress",
-      name: "White Floral Tiered Mini Dress",
-      price: 50,
-      categories: ["dresses", "going-out"],
-      colors: ["white"],
-      sizes: ["XS", "S", "M", "L", "XL"],
-      image: "dress/White Floral Lace-Up Halter Dress-2.png",
-      description: "A white floral halter dress with a tiered mini skirt.",
-      details: "Halter neckline, white floral lace-up detail, and tiered mini skirt.",
-      variants: {
+        blue: { name: "Blue Floral", front: "dress/Blue Floral Ruched Mini Dress.png", back: "dress/Blue Floral Halter Dress Back View.png" },
+        pink: { name: "Pink Floral", front: "dress/multicolor Lace Halter Dress View-1.png", back: "dress/multicolor Lace Halter Dress Back View-1 (2).png" },
+        yellow: { name: "Yellow Floral", front: "dress/multicolor Lace Halter Dress View-1 (2).png", back: "dress/multicolor Lace Halter Dress Back View-1.png" },
         white: { name: "White", front: "dress/White Floral Lace-Up Halter Dress-2.png", back: "dress/White Lace Halter Dress Back View-1.png" }
       }
     },
