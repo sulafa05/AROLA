@@ -197,6 +197,22 @@ if (womenProductGrid) {
         apricot: { name: "Pale Apricot", front: "dress/Pale%20Apricot%20Ruched%20Halter%20Mini%20Dress.png", back: "dress/Pale%20Apricot%20Open-Back%20Halter%20Dress.png" }
       }
     },
+    {
+      id: "ruched-mock-neck-mini-dress",
+      name: "Ruched Mock Neck Mini Dress",
+      price: 29,
+      categories: ["dresses", "going-out"],
+      colors: ["black", "brown", "burgundy"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      image: "dress/black%20Floral%20Ruched%20Mini%20Dress%20View.png",
+      description: "A sleek sleeveless mini dress featuring a softly ruched mock neckline and a cinched waist for a flattering silhouette. Designed for parties, dinners, and elevated evening looks.",
+      details: "Sleeveless mock neckline, softly ruched bodice, cinched waist, and mini length.",
+      variants: {
+        black: { name: "Black", front: "dress/black%20Floral%20Ruched%20Mini%20Dress%20View.png" },
+        brown: { name: "Brown", front: "dress/brown%20Floral%20Ruched%20Mini%20Dress%20View.png" },
+        burgundy: { name: "Burgundy Floral", front: "dress/Burgundy%20Ruched%20Floral%20Bodycon%20Dress.png" }
+      }
+    },
     { name: "Tailored Blazer", price: 138, category: "workwear", colors: ["black", "beige", "brown"], sizes: ["S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=85&w=800&auto=format&fit=crop" },
     { name: "Satin Dress", price: 112, category: "going-out", colors: ["brown", "black", "olive"], sizes: ["XS", "S", "M", "L"], image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=85&w=800&auto=format&fit=crop" },
     { name: "Knit Cardigan", price: 74, category: "loungewear", colors: ["white", "beige", "pink"], sizes: ["XS", "S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=85&w=800&auto=format&fit=crop" }
@@ -220,6 +236,8 @@ if (womenProductGrid) {
   const dressDetail = document.getElementById("dressProductDetail");
   const detailFrontImage = document.getElementById("dressFrontImage");
   const detailBackImage = document.getElementById("dressBackImage");
+  const detailBackFigure = detailBackImage.closest("figure");
+  const detailImagePair = document.querySelector(".dress-detail-image-pair");
   const dressColorOptions = document.getElementById("dressColorOptions");
   const collectionLayout = document.querySelector(".collection-layout");
   const collectionToolbar = document.querySelector(".collection-toolbar");
@@ -273,8 +291,15 @@ if (womenProductGrid) {
     if (!variant) return;
     detailFrontImage.src = variant.front;
     detailFrontImage.alt = `${activeDressProduct.name} in ${variant.name}, front view`;
-    detailBackImage.src = variant.back;
-    detailBackImage.alt = `${activeDressProduct.name} in ${variant.name}, back view`;
+    detailBackFigure.hidden = !variant.back;
+    detailImagePair.classList.toggle("single-image", !variant.back);
+    if (variant.back) {
+      detailBackImage.src = variant.back;
+      detailBackImage.alt = `${activeDressProduct.name} in ${variant.name}, back view`;
+    } else {
+      detailBackImage.removeAttribute("src");
+      detailBackImage.alt = "";
+    }
     document.getElementById("selectedDressColor").textContent = variant.name;
     dressColorOptions.querySelectorAll("[data-dress-color]").forEach(button => {
       button.setAttribute("aria-pressed", String(button.dataset.dressColor === color));
