@@ -244,6 +244,20 @@ if (womenProductGrid) {
       }
     },
     {
+      id: "blue-floral-corset-mini-dress",
+      name: "Blue Floral Corset Mini Dress",
+      price: 50,
+      categories: ["dresses", "going-out"],
+      colors: ["blue"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      image: "dress/Blue Floral Corset Mini Dress.jpg",
+      description: "A feminine blue floral mini dress with a corset-inspired fitted bodice, adjustable straps, lace-up back, and a full flared skirt with delicate lace trim. Perfect for brunches, vacations, daytime events, and summer occasions.",
+      details: "Corset-inspired fitted bodice, adjustable straps, lace-up back, flared skirt, and delicate lace trim.",
+      variants: {
+        blue: { name: "Blue and White", front: "dress/Blue Floral Corset Mini Dress.jpg", back: "dress/Blue Floral Corset Mini Dress back.jpg" }
+      }
+    },
+    {
       id: "ruched-mock-neck-mini-dress",
       name: "Ruched Mock Neck Mini Dress",
       price: 29,
