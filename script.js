@@ -213,6 +213,20 @@ if (womenProductGrid) {
         burgundy: { name: "Burgundy Floral", front: "dress/Burgundy%20Ruched%20Floral%20Bodycon%20Dress.png" }
       }
     },
+    {
+      id: "ruched-mock-neck-long-sleeve-mini-dress",
+      name: "Ruched Mock Neck Long Sleeve Mini Dress",
+      price: 55,
+      categories: ["dresses", "going-out"],
+      colors: ["black"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      image: "dress/Black%20Ruched%20Turtleneck%20Mini%20Dress.png",
+      description: "A sleek fitted mini dress with a softly draped mock neckline, long sleeves, and flattering ruching through the waist and skirt. Perfect for dinners, parties, evening outings, and cooler-weather looks.",
+      details: "Long sleeves, softly draped mock neckline, ruched waist and skirt, and mini length.",
+      variants: {
+        black: { name: "Black", front: "dress/Black%20Ruched%20Turtleneck%20Mini%20Dress.png", back: "dress/Black%20Ruched%20Back%20Mini%20Dress.png" }
+      }
+    },
     { name: "Tailored Blazer", price: 138, category: "workwear", colors: ["black", "beige", "brown"], sizes: ["S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=85&w=800&auto=format&fit=crop" },
     { name: "Satin Dress", price: 112, category: "going-out", colors: ["brown", "black", "olive"], sizes: ["XS", "S", "M", "L"], image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=85&w=800&auto=format&fit=crop" },
     { name: "Knit Cardigan", price: 74, category: "loungewear", colors: ["white", "beige", "pink"], sizes: ["XS", "S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=85&w=800&auto=format&fit=crop" }
