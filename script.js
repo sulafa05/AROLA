@@ -199,7 +199,7 @@ if (womenProductGrid) {
     },
     {
       id: "blue-floral-halter-tiered-dress",
-      name: "Blue Floral Halter/Tiered Dress",
+      name: "Blue Floral Tiered Mini Dress",
       price: 50,
       categories: ["dresses", "going-out"],
       colors: ["blue"],
@@ -213,7 +213,7 @@ if (womenProductGrid) {
     },
     {
       id: "pink-floral-halter-tiered-dress",
-      name: "Pink Floral Halter/Tiered Dress",
+      name: "Pink Floral Tiered Mini Dress",
       price: 50,
       categories: ["dresses", "going-out"],
       colors: ["pink"],
@@ -241,7 +241,7 @@ if (womenProductGrid) {
     },
     {
       id: "white-halter-tiered-dress",
-      name: "White Halter Tiered Dress",
+      name: "White Floral Tiered Mini Dress",
       price: 50,
       categories: ["dresses", "going-out"],
       colors: ["white"],
@@ -285,7 +285,7 @@ if (womenProductGrid) {
     },
     {
       id: "ruched-mock-neck-long-sleeve-mini-dress",
-      name: "Ruched Mock Neck Long Sleeve Mini Dress",
+      name: "Ruched Mock Neck Long Sleeve Dress",
       price: 55,
       categories: ["dresses", "going-out"],
       colors: ["black"],
