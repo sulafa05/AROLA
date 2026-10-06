@@ -204,11 +204,11 @@ if (womenProductGrid) {
       categories: ["dresses", "going-out"],
       colors: ["blue", "pink", "yellow", "white"],
       sizes: ["XS", "S", "M", "L", "XL"],
-      image: "dress/Blue Floral Ruched Mini Dress.png",
+      image: "dress/Blue Floral Tiered Halter Mini Dress.png",
       description: "A floral halter mini dress with a tiered skirt, available in four floral colorways.",
       details: "Halter neckline and tiered mini skirt in Blue Floral, Pink Floral, Yellow Floral, and White.",
       variants: {
-        blue: { name: "Blue Floral", front: "dress/Blue Floral Ruched Mini Dress.png", back: "dress/Blue Floral Halter Dress Back View.png" },
+        blue: { name: "Blue Floral", front: "dress/Blue Floral Tiered Halter Mini Dress.png", back: "dress/Blue Floral Halter Dress Back View.png" },
         pink: { name: "Pink Floral", front: "dress/multicolor Lace Halter Dress View-1.png", back: "dress/multicolor Lace Halter Dress Back View-1 (2).png" },
         yellow: { name: "Yellow Floral", front: "dress/multicolor Lace Halter Dress View-1 (2).png", back: "dress/multicolor Lace Halter Dress Back View-1.png" },
         white: { name: "White", front: "dress/White Floral Lace-Up Halter Dress-2.png", back: "dress/White Lace Halter Dress Back View-1.png" }
