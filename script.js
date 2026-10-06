@@ -165,6 +165,21 @@ if (womenProductGrid) {
     { name: "Square Neck Top", price: 48, category: "jeans-tops", colors: ["white", "black", "pink"], sizes: ["XS", "S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1551232864-3f0890e580d9?q=85&w=800&auto=format&fit=crop" },
     { name: "Wide Leg Pants", price: 82, category: "jeans-tops", colors: ["beige", "black", "olive"], sizes: ["XS", "S", "M", "L"], image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=85&w=800&auto=format&fit=crop" },
     { name: "Floral Midi Dress", price: 96, category: "dresses", colors: ["pink", "white"], sizes: ["XS", "S", "M", "L"], image: "https://images.unsplash.com/photo-1495385794356-15371f348c31?q=85&w=800&auto=format&fit=crop", label: "New in" },
+    {
+      id: "ruched-bell-sleeve-mini-dress",
+      name: "Ruched Bell Sleeve Mini Dress",
+      price: 40,
+      categories: ["dresses", "going-out"],
+      colors: ["black", "apricot", "burgundy", "khaki"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      image: "../dress/Ruched%20Black%20Bell-Sleeve%20Mini%20Dress.png",
+      variants: {
+        black: { name: "Black", front: "../dress/Ruched%20Black%20Bell-Sleeve%20Mini%20Dress.png", back: "../dress/Black%20Ruched%20Bell-Sleeve%20Dress%20Back.png" },
+        apricot: { name: "Apricot", front: "../dress/Ruched%20apriocot%20Bell-Sleeve%20Mini%20Dress.png", back: "../dress/apriocot%20Ruched%20Bell-Sleeve%20Dress%20Back.png" },
+        burgundy: { name: "Burgundy", front: "../dress/Ruched%20burgundy%20Bell-Sleeve%20Mini%20Dress.png", back: "../dress/Burgundy%20Ruched%20Bell-Sleeve%20Mini%20Dress-1.png" },
+        khaki: { name: "Khaki", front: "../dress/Ruched%20khaki%20Bell-Sleeve%20Mini%20Dress.png", back: "../dress/khaki%20Ruched%20Bell-Sleeve%20Dress%20Back.png" }
+      }
+    },
     { name: "Tailored Blazer", price: 138, category: "workwear", colors: ["black", "beige", "brown"], sizes: ["S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=85&w=800&auto=format&fit=crop" },
     { name: "Satin Dress", price: 112, category: "going-out", colors: ["brown", "black", "olive"], sizes: ["XS", "S", "M", "L"], image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=85&w=800&auto=format&fit=crop" },
     { name: "Knit Cardigan", price: 74, category: "loungewear", colors: ["white", "beige", "pink"], sizes: ["XS", "S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?q=85&w=800&auto=format&fit=crop" }
@@ -184,19 +199,79 @@ if (womenProductGrid) {
   const additionalCategories = document.getElementById("additionalCategories");
   const bagCount = document.querySelector(".women-page .bag-count");
   let bagItems = 0;
+  const dressProduct = womenProducts.find(product => product.id === "ruched-bell-sleeve-mini-dress");
+  const dressDetail = document.getElementById("dressProductDetail");
+  const detailFrontImage = document.getElementById("dressFrontImage");
+  const detailBackImage = document.getElementById("dressBackImage");
+  const collectionLayout = document.querySelector(".collection-layout");
+  const collectionToolbar = document.querySelector(".collection-toolbar");
+  const collectionEndnote = document.querySelector(".collection-endnote");
+  const colorValues = { black: "#252321", white: "#fff", beige: "#d7c7ae", pink: "#d9aeb0", brown: "#8a6955", olive: "#85836a", apricot: "#e7c8a3", burgundy: "#7d142b", khaki: "#b49a78" };
+
+  function showDressDetail() {
+    collectionLayout.classList.add("is-detail-open");
+    collectionToolbar.hidden = true;
+    collectionEndnote.hidden = true;
+    womenProductGrid.hidden = true;
+    emptyState.hidden = true;
+    sidebar.hidden = true;
+    dressDetail.hidden = false;
+    dressDetail.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function closeDressDetail() {
+    dressDetail.hidden = true;
+    collectionLayout.classList.remove("is-detail-open");
+    collectionToolbar.hidden = false;
+    collectionEndnote.hidden = false;
+    sidebar.hidden = false;
+    renderWomenProducts();
+    womenProductGrid.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function selectDressColor(color) {
+    const variant = dressProduct.variants[color];
+    if (!variant) return;
+    detailFrontImage.src = variant.front;
+    detailFrontImage.alt = `${dressProduct.name} in ${variant.name}, front view`;
+    detailBackImage.src = variant.back;
+    detailBackImage.alt = `${dressProduct.name} in ${variant.name}, back view`;
+    document.getElementById("selectedDressColor").textContent = variant.name;
+    document.querySelectorAll("[data-dress-color]").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.dressColor === color));
+    });
+  }
+
+  function addDressToBag(isBuyNow) {
+    const size = document.getElementById("dressSize");
+    const quantityInput = document.getElementById("dressQuantity");
+    const message = document.getElementById("dressActionMessage");
+    if (!size.value) {
+      message.textContent = "Please select a size first.";
+      size.focus();
+      return;
+    }
+    const quantity = Math.max(1, Math.min(10, Number(quantityInput.value) || 1));
+    quantityInput.value = String(quantity);
+    bagItems += quantity;
+    bagCount.textContent = String(bagItems);
+    document.querySelector(".women-page .bag-btn").setAttribute("aria-label", `Shopping bag, ${bagItems} items`);
+    message.textContent = isBuyNow ? "Added to your bag. Checkout is not available yet." : `${quantity} ${quantity === 1 ? "item" : "items"} added to your bag.`;
+  }
 
   function renderWomenProducts() {
     const categories = categoryFilters.filter(input => input.checked).map(input => input.value);
     const sizes = sizeFilters.filter(input => input.checked).map(input => input.value);
     const colors = colorFilters.filter(button => button.getAttribute("aria-pressed") === "true").map(button => button.dataset.color);
     const query = womenSearch.value.trim().toLowerCase();
-    let matches = womenProducts.filter(product =>
-      (!categories.length || categories.includes(product.category)) &&
+    let matches = womenProducts.filter(product => {
+      const productCategories = product.categories || [product.category];
+      return (!categories.length || categories.some(category => productCategories.includes(category))) &&
       (!sizes.length || sizes.some(size => product.sizes.includes(size))) &&
       (!colors.length || colors.some(color => product.colors.includes(color))) &&
       product.price <= Number(priceRange.value) &&
-      (!query || `${product.name} ${product.category}`.toLowerCase().includes(query))
-    );
+      (!query || `${product.name} ${productCategories.join(" ")}`.toLowerCase().includes(query));
+    });
 
     if (sortProducts.value === "newest") matches = [...matches].reverse();
     if (sortProducts.value === "low-high") matches.sort((a, b) => a.price - b.price);
@@ -205,26 +280,28 @@ if (womenProductGrid) {
     womenProductGrid.innerHTML = matches.map((product, index) => `
       <article class="women-product-card" style="animation-delay:${index * 35}ms">
         <div class="women-product-image">
-          <img src="${product.image}" alt="${product.name}" loading="lazy">
+          ${product.id ? `<button class="product-open-image" type="button" data-product-id="${product.id}" aria-label="View ${product.name}"><img src="${product.image}" alt="${product.name}" loading="lazy"></button>` : `<img src="${product.image}" alt="${product.name}" loading="lazy">`}
           ${product.label ? `<span class="product-label">${product.label}</span>` : ""}
           <button class="wishlist-heart" type="button" aria-label="Add ${product.name} to wishlist" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.5 8 2 4.5 5.5 4c2-.3 3.9.6 5 2.2C11.6 4.6 13.5 3.7 15.5 4 19 4.5 20.5 8 19 11.7 16.5 16.4 12 21 12 21z"/></svg>
           </button>
         </div>
-        <div class="women-product-info"><h3>${product.name}</h3><p>$${product.price.toFixed(2)}</p></div>
-        <div class="product-colors" aria-label="Available colors">${product.colors.map(color => `<span class="product-color-dot" title="${color}" style="background:${({ black: "#252321", white: "#fff", beige: "#d7c7ae", pink: "#d9aeb0", brown: "#8a6955", olive: "#85836a" })[color]}"></span>`).join("")}</div>
+        <div class="women-product-info"><h3>${product.id ? `<button class="product-open-title" type="button" data-product-id="${product.id}">${product.name}</button>` : product.name}</h3><p>$${product.price.toFixed(2)}</p></div>
+        <div class="product-colors" aria-label="Available colors">${product.colors.map(color => `<span class="product-color-dot" title="${color}" style="background:${colorValues[color]}"></span>`).join("")}</div>
       </article>
     `).join("");
 
     visibleCount.textContent = `· Showing ${matches.length} curated ${matches.length === 1 ? "piece" : "pieces"}`;
-    emptyState.hidden = matches.length > 0;
-    womenProductGrid.hidden = matches.length === 0;
+    const detailIsOpen = !dressDetail.hidden;
+    emptyState.hidden = matches.length > 0 || detailIsOpen;
+    womenProductGrid.hidden = matches.length === 0 || detailIsOpen;
     womenProductGrid.querySelectorAll(".wishlist-heart").forEach(button => {
       button.addEventListener("click", () => {
         const isActive = button.classList.toggle("active");
         button.setAttribute("aria-pressed", String(isActive));
       });
     });
+    womenProductGrid.querySelectorAll("[data-product-id]").forEach(button => button.addEventListener("click", showDressDetail));
   }
 
   document.querySelectorAll('.collection-sidebar input[type="checkbox"]').forEach(input => input.addEventListener("change", renderWomenProducts));
@@ -259,6 +336,19 @@ if (womenProductGrid) {
     additionalCategories.hidden = !isExpanded;
     viewCategories.setAttribute("aria-expanded", String(isExpanded));
     viewCategories.firstChild.textContent = isExpanded ? "Show Featured Categories " : "View All Categories ";
+  });
+  document.querySelectorAll("[data-dress-color]").forEach(button => button.addEventListener("click", () => selectDressColor(button.dataset.dressColor)));
+  document.getElementById("backToWomenProducts").addEventListener("click", closeDressDetail);
+  document.getElementById("dressWishlist").addEventListener("click", event => {
+    const button = event.currentTarget;
+    const isActive = button.classList.toggle("active");
+    button.setAttribute("aria-pressed", String(isActive));
+    button.setAttribute("aria-label", `${isActive ? "Remove" : "Add"} Ruched Bell Sleeve Mini Dress ${isActive ? "from" : "to"} wishlist`);
+  });
+  document.getElementById("addDressToBag").addEventListener("click", () => addDressToBag(false));
+  document.getElementById("buyDressNow").addEventListener("click", () => addDressToBag(true));
+  document.getElementById("dressQuantity").addEventListener("change", event => {
+    event.currentTarget.value = String(Math.max(1, Math.min(10, Number(event.currentTarget.value) || 1)));
   });
   document.querySelectorAll(".women-category-card").forEach(card => card.addEventListener("click", event => {
     event.preventDefault();

@@ -139,6 +139,9 @@
           <legend>Color</legend>
           <div class="swatch-options">
             <button type="button" class="filter-swatch" data-color="black" aria-label="Black" aria-pressed="false" style="--swatch:#252321"></button>
+            <button type="button" class="filter-swatch" data-color="apricot" aria-label="Apricot" aria-pressed="false" style="--swatch:#e7c8a3"></button>
+            <button type="button" class="filter-swatch" data-color="burgundy" aria-label="Burgundy" aria-pressed="false" style="--swatch:#7d142b"></button>
+            <button type="button" class="filter-swatch" data-color="khaki" aria-label="Khaki" aria-pressed="false" style="--swatch:#b49a78"></button>
             <button type="button" class="filter-swatch" data-color="white" aria-label="White" aria-pressed="false" style="--swatch:#fff"></button>
             <button type="button" class="filter-swatch" data-color="beige" aria-label="Beige" aria-pressed="false" style="--swatch:#d7c7ae"></button>
             <button type="button" class="filter-swatch" data-color="pink" aria-label="Pink" aria-pressed="false" style="--swatch:#d9aeb0"></button>
@@ -176,6 +179,78 @@
           </div>
         </div>
 
+        <section class="dress-detail" id="dressProductDetail" aria-labelledby="dressDetailTitle" hidden>
+          <button class="detail-back-button" id="backToWomenProducts" type="button">
+            <span aria-hidden="true">&larr;</span> Back to Women’s clothing
+          </button>
+          <div class="dress-detail-layout">
+            <div class="dress-detail-gallery">
+              <div class="dress-detail-image-pair">
+                <figure>
+                  <img id="dressFrontImage" src="../dress/Ruched%20Black%20Bell-Sleeve%20Mini%20Dress.png" alt="Ruched Bell Sleeve Mini Dress in Black, front view">
+                  <figcaption>Front</figcaption>
+                </figure>
+                <figure>
+                  <img id="dressBackImage" src="../dress/Black%20Ruched%20Bell-Sleeve%20Dress%20Back.png" alt="Ruched Bell Sleeve Mini Dress in Black, back view">
+                  <figcaption>Back</figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="dress-detail-copy">
+              <p class="eyebrow">WOMEN / DRESSES / GOING OUT</p>
+              <h2 id="dressDetailTitle">Ruched Bell Sleeve Mini Dress</h2>
+              <p class="dress-detail-price">$40.00</p>
+              <p class="dress-detail-description">Elegant mini dress with a deep V-neck, ruched fitted waist, and dramatic bell sleeves. Perfect for dinners, parties, and evening looks.</p>
+
+              <div class="dress-color-picker">
+                <p>Color: <span id="selectedDressColor">Black</span></p>
+                <div class="dress-color-options" aria-label="Choose a color">
+                  <button class="dress-color-swatch" type="button" data-dress-color="black" aria-label="Black" title="Black" aria-pressed="true" style="--dress-swatch:#171615"></button>
+                  <button class="dress-color-swatch" type="button" data-dress-color="apricot" aria-label="Apricot" title="Apricot" aria-pressed="false" style="--dress-swatch:#e7c8a3"></button>
+                  <button class="dress-color-swatch" type="button" data-dress-color="burgundy" aria-label="Burgundy" title="Burgundy" aria-pressed="false" style="--dress-swatch:#7d142b"></button>
+                  <button class="dress-color-swatch" type="button" data-dress-color="khaki" aria-label="Khaki" title="Khaki" aria-pressed="false" style="--dress-swatch:#b49a78"></button>
+                </div>
+              </div>
+
+              <div class="dress-purchase-options">
+                <label for="dressSize">Size</label>
+                <select id="dressSize" required>
+                  <option value="">Select a size</option>
+                  <option value="XS">XS</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                </select>
+                <label for="dressQuantity">Quantity</label>
+                <input id="dressQuantity" type="number" min="1" max="10" value="1" inputmode="numeric">
+              </div>
+
+              <button class="dress-detail-wishlist wishlist-heart" id="dressWishlist" type="button" aria-label="Add Ruched Bell Sleeve Mini Dress to wishlist" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.5 8 2 4.5 5.5 4c2-.3 3.9.6 5 2.2C11.6 4.6 13.5 3.7 15.5 4 19 4.5 20.5 8 19 11.7 16.5 16.4 12 21 12 21z"/></svg>
+                Add to wishlist
+              </button>
+              <div class="dress-detail-actions">
+                <button class="dress-add-button" id="addDressToBag" type="button">Add to Bag</button>
+                <button class="dress-buy-button" id="buyDressNow" type="button">Buy Now</button>
+              </div>
+              <p class="dress-action-message" id="dressActionMessage" role="status" aria-live="polite"></p>
+
+              <div class="dress-information">
+                <details open>
+                  <summary>Product details</summary>
+                  <p>Deep V-neck, fitted ruched waist, mini length, and dramatic bell sleeves.</p>
+                  <p>Available sizes: XS, S, M, L, XL.</p>
+                </details>
+                <details>
+                  <summary>Delivery &amp; returns</summary>
+                  <p>Complimentary shipping on orders over $100.</p>
+                  <p>For return eligibility and instructions, contact Customer Care.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+        </section>
         <div class="women-product-grid" id="womenProductGrid" aria-live="polite"></div>
         <p class="empty-state" id="emptyState" hidden>No pieces match those filters. Try adjusting your selection.</p>
         <div class="collection-endnote"><span></span><p>Considered essentials, made for the moments in between.</p><span></span></div>
