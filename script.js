@@ -215,6 +215,21 @@ if (womenProductGrid) {
       }
     },
     {
+      id: "floral-ruched-summer-sundress",
+      name: "Floral Ruched Summer Sundress",
+      price: 35,
+      categories: ["dresses", "going-out"],
+      colors: ["blue", "pink"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      image: "dress/Blue Floral Ruched Mini Dress.png",
+      description: "A floral halter mini dress with a ruched bodice and tiered skirt.",
+      details: "Ruched halter bodice and tiered mini skirt in Blue Floral or Pink Floral.",
+      variants: {
+        blue: { name: "Blue Floral", front: "dress/Blue Floral Ruched Mini Dress.png", back: "dress/Blue Floral Ruched Summer Sundress back.png" },
+        pink: { name: "Pink Floral", front: "dress/bink Floral Ruched Summer Sundress.png", back: "dress/bink Floral Ruched Summer Sundress back.png" }
+      }
+    },
+    {
       id: "blue-floral-cutout-halter-mini-dress",
       name: "Blue Floral Cutout Halter Mini Dress",
       price: 54,
