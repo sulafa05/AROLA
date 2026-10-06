@@ -198,6 +198,23 @@ if (womenProductGrid) {
       }
     },
     {
+      id: "floral-ruched-halter-tiered-mini-dress",
+      name: "Floral Ruched Halter Tiered Mini Dress",
+      price: 50,
+      categories: ["dresses", "going-out"],
+      colors: ["blue", "pink", "yellow", "white"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      image: "dress/Blue%20Floral%20Tiered%20Halter%20Mini%20Dress.png",
+      description: "A floral halter mini dress with a ruched bodice and a tiered skirt.",
+      details: "Halter neckline, ruched bodice, floral print, and tiered mini skirt.",
+      variants: {
+        blue: { name: "Blue Floral", front: "dress/Blue%20Floral%20Tiered%20Halter%20Mini%20Dress.png", back: "dress/Blue%20Floral%20Halter%20Dress%20Back%20View.png" },
+        pink: { name: "Pink Floral", front: "dress/multicolor%20Lace%20Halter%20Dress%20View-1.png", back: "dress/multicolor%20Lace%20Halter%20Dress%20Back%20View-1.png" },
+        yellow: { name: "Yellow Floral", front: "dress/multicolor%20Lace%20Halter%20Dress%20View-1%20(2).png", back: "dress/multicolor%20Lace%20Halter%20Dress%20Back%20View-1%20(2).png" },
+        white: { name: "White", front: "dress/White%20Floral%20Lace-Up%20Halter%20Dress-2.png", back: "dress/White%20Lace%20Halter%20Dress%20Back%20View-1.png" }
+      }
+    },
+    {
       id: "ruched-mock-neck-mini-dress",
       name: "Ruched Mock Neck Mini Dress",
       price: 29,
@@ -256,7 +273,7 @@ if (womenProductGrid) {
   const collectionLayout = document.querySelector(".collection-layout");
   const collectionToolbar = document.querySelector(".collection-toolbar");
   const collectionEndnote = document.querySelector(".collection-endnote");
-  const colorValues = { black: "#252321", white: "#fff", beige: "#d7c7ae", pink: "#d9aeb0", brown: "#8a6955", olive: "#85836a", apricot: "#e7c8a3", burgundy: "#7d142b", khaki: "#b49a78" };
+  const colorValues = { black: "#252321", white: "#fff", beige: "#d7c7ae", pink: "#d9aeb0", brown: "#8a6955", olive: "#85836a", apricot: "#e7c8a3", burgundy: "#7d142b", khaki: "#b49a78", blue: "#6f91ad", yellow: "#e0bf50" };
 
   function showDressDetail(event) {
     activeDressProduct = womenProducts.find(product => product.id === event.currentTarget.dataset.productId);
