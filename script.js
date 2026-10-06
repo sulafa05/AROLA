@@ -200,7 +200,7 @@ if (womenProductGrid) {
     {
       id: "blue-floral-halter-tiered-dress",
       name: "Floral Ruched Sundress",
-      price: 50,
+      price: 35,
       categories: ["dresses", "going-out"],
       colors: ["blue", "pink"],
       sizes: ["XS", "S", "M", "L", "XL"],
