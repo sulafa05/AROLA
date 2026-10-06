@@ -197,19 +197,14 @@
               </div>
             </div>
             <div class="dress-detail-copy">
-              <p class="eyebrow">WOMEN / DRESSES / GOING OUT</p>
+              <p class="eyebrow" id="dressCategoryLabel">WOMEN / DRESSES / GOING OUT</p>
               <h2 id="dressDetailTitle">Ruched Bell Sleeve Mini Dress</h2>
-              <p class="dress-detail-price">$40.00</p>
-              <p class="dress-detail-description">Elegant mini dress with a deep V-neck, ruched fitted waist, and dramatic bell sleeves. Perfect for dinners, parties, and evening looks.</p>
+              <p class="dress-detail-price" id="dressDetailPrice">$40.00</p>
+              <p class="dress-detail-description" id="dressDetailDescription">Elegant mini dress with a deep V-neck, ruched fitted waist, and dramatic bell sleeves. Perfect for dinners, parties, and evening looks.</p>
 
               <div class="dress-color-picker">
                 <p>Color: <span id="selectedDressColor">Black</span></p>
-                <div class="dress-color-options" aria-label="Choose a color">
-                  <button class="dress-color-swatch" type="button" data-dress-color="black" aria-label="Black" title="Black" aria-pressed="true" style="--dress-swatch:#171615"></button>
-                  <button class="dress-color-swatch" type="button" data-dress-color="apricot" aria-label="Apricot" title="Apricot" aria-pressed="false" style="--dress-swatch:#e7c8a3"></button>
-                  <button class="dress-color-swatch" type="button" data-dress-color="burgundy" aria-label="Burgundy" title="Burgundy" aria-pressed="false" style="--dress-swatch:#7d142b"></button>
-                  <button class="dress-color-swatch" type="button" data-dress-color="khaki" aria-label="Khaki" title="Khaki" aria-pressed="false" style="--dress-swatch:#b49a78"></button>
-                </div>
+                <div class="dress-color-options" id="dressColorOptions" aria-label="Choose a color"></div>
               </div>
 
               <div class="dress-purchase-options">
@@ -226,7 +221,7 @@
                 <input id="dressQuantity" type="number" min="1" max="10" value="1" inputmode="numeric">
               </div>
 
-              <button class="dress-detail-wishlist wishlist-heart" id="dressWishlist" type="button" aria-label="Add Ruched Bell Sleeve Mini Dress to wishlist" aria-pressed="false">
+              <button class="dress-detail-wishlist wishlist-heart" id="dressWishlist" type="button" aria-label="Add product to wishlist" aria-pressed="false">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.3C.5 8 2 4.5 5.5 4c2-.3 3.9.6 5 2.2C11.6 4.6 13.5 3.7 15.5 4 19 4.5 20.5 8 19 11.7 16.5 16.4 12 21 12 21z"/></svg>
                 Add to wishlist
               </button>
@@ -239,8 +234,8 @@
               <div class="dress-information">
                 <details open>
                   <summary>Product details</summary>
-                  <p>Deep V-neck, fitted ruched waist, mini length, and dramatic bell sleeves.</p>
-                  <p>Available sizes: XS, S, M, L, XL.</p>
+                  <p id="dressProductDetailsText">Deep V-neck, fitted ruched waist, mini length, and dramatic bell sleeves.</p>
+                  <p id="dressAvailableSizes">Available sizes: XS, S, M, L, XL.</p>
                 </details>
                 <details>
                   <summary>Delivery &amp; returns</summary>

@@ -173,11 +173,28 @@ if (womenProductGrid) {
       colors: ["black", "apricot", "burgundy", "khaki"],
       sizes: ["XS", "S", "M", "L", "XL"],
       image: "dress/Ruched%20Black%20Bell-Sleeve%20Mini%20Dress.png",
+      description: "Elegant mini dress with a deep V-neck, ruched fitted waist, and dramatic bell sleeves. Perfect for dinners, parties, and evening looks.",
+      details: "Deep V-neck, fitted ruched waist, mini length, and dramatic bell sleeves.",
       variants: {
         black: { name: "Black", front: "dress/Ruched%20Black%20Bell-Sleeve%20Mini%20Dress.png", back: "dress/Black%20Ruched%20Bell-Sleeve%20Dress%20Back.png" },
         apricot: { name: "Apricot", front: "dress/Ruched%20apricot%20Bell-Sleeve%20Mini%20Dress.png", back: "dress/apricot%20Ruched%20Bell-Sleeve%20Dress%20Back.png" },
         burgundy: { name: "Burgundy", front: "dress/Burgundy%20Ruched%20Bell-Sleeve%20Mini%20Dress-1.png", back: "dress/Ruched%20burgundy%20Bell-Sleeve%20Mini%20Dress.png" },
         khaki: { name: "Khaki", front: "dress/Ruched%20khaki%20Bell-Sleeve%20Mini%20Dress.png", back: "dress/khaki%20Ruched%20Bell-Sleeve%20Dress%20Back.png" }
+      }
+    },
+    {
+      id: "ruched-halter-tiered-mini-dress",
+      name: "Ruched Halter Tiered Mini Dress",
+      price: 39,
+      categories: ["dresses", "going-out"],
+      colors: ["black", "apricot"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      image: "dress/Black%20Halter%20Ruched%20Tiered%20Mini%20Dress.png",
+      description: "Ruched halter mini dress with tiered ruffles and an open back.",
+      details: "Halter neckline, ruched bodice, tiered ruffle skirt, and open back.",
+      variants: {
+        black: { name: "Black", front: "dress/Black%20Halter%20Ruched%20Tiered%20Mini%20Dress.png", back: "dress/Black%20Halter%20Dress%20with%20Tiered%20Ruffles.png" },
+        apricot: { name: "Pale Apricot", front: "dress/Pale%20Apricot%20Ruched%20Halter%20Mini%20Dress.png", back: "dress/Pale%20Apricot%20Open-Back%20Halter%20Dress.png" }
       }
     },
     { name: "Tailored Blazer", price: 138, category: "workwear", colors: ["black", "beige", "brown"], sizes: ["S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=85&w=800&auto=format&fit=crop" },
@@ -199,16 +216,38 @@ if (womenProductGrid) {
   const additionalCategories = document.getElementById("additionalCategories");
   const bagCount = document.querySelector(".women-page .bag-count");
   let bagItems = 0;
-  const dressProduct = womenProducts.find(product => product.id === "ruched-bell-sleeve-mini-dress");
+  let activeDressProduct = null;
   const dressDetail = document.getElementById("dressProductDetail");
   const detailFrontImage = document.getElementById("dressFrontImage");
   const detailBackImage = document.getElementById("dressBackImage");
+  const dressColorOptions = document.getElementById("dressColorOptions");
   const collectionLayout = document.querySelector(".collection-layout");
   const collectionToolbar = document.querySelector(".collection-toolbar");
   const collectionEndnote = document.querySelector(".collection-endnote");
   const colorValues = { black: "#252321", white: "#fff", beige: "#d7c7ae", pink: "#d9aeb0", brown: "#8a6955", olive: "#85836a", apricot: "#e7c8a3", burgundy: "#7d142b", khaki: "#b49a78" };
 
-  function showDressDetail() {
+  function showDressDetail(event) {
+    activeDressProduct = womenProducts.find(product => product.id === event.currentTarget.dataset.productId);
+    if (!activeDressProduct) return;
+
+    document.getElementById("dressDetailTitle").textContent = activeDressProduct.name;
+    document.getElementById("dressDetailPrice").textContent = `$${activeDressProduct.price.toFixed(2)}`;
+    document.getElementById("dressDetailDescription").textContent = activeDressProduct.description;
+    document.getElementById("dressCategoryLabel").textContent = `WOMEN / ${activeDressProduct.categories.join(" / ").replaceAll("-", " ").toUpperCase()}`;
+    document.getElementById("dressProductDetailsText").textContent = activeDressProduct.details;
+    document.getElementById("dressAvailableSizes").textContent = `Available sizes: ${activeDressProduct.sizes.join(", ")}.`;
+    document.getElementById("dressSize").innerHTML = `<option value="">Select a size</option>${activeDressProduct.sizes.map(size => `<option value="${size}">${size}</option>`).join("")}`;
+    document.getElementById("dressQuantity").value = "1";
+    document.getElementById("dressActionMessage").textContent = "";
+    const wishlistButton = document.getElementById("dressWishlist");
+    wishlistButton.classList.remove("active");
+    wishlistButton.setAttribute("aria-pressed", "false");
+    wishlistButton.setAttribute("aria-label", `Add ${activeDressProduct.name} to wishlist`);
+    dressColorOptions.innerHTML = activeDressProduct.colors.map(color => `
+      <button class="dress-color-swatch" type="button" data-dress-color="${color}" aria-label="${activeDressProduct.variants[color].name}" title="${activeDressProduct.variants[color].name}" aria-pressed="false" style="--dress-swatch:${colorValues[color]}"></button>
+    `).join("");
+    selectDressColor(activeDressProduct.colors[0]);
+
     collectionLayout.classList.add("is-detail-open");
     collectionToolbar.hidden = true;
     collectionEndnote.hidden = true;
@@ -230,14 +269,14 @@ if (womenProductGrid) {
   }
 
   function selectDressColor(color) {
-    const variant = dressProduct.variants[color];
+    const variant = activeDressProduct?.variants[color];
     if (!variant) return;
     detailFrontImage.src = variant.front;
-    detailFrontImage.alt = `${dressProduct.name} in ${variant.name}, front view`;
+    detailFrontImage.alt = `${activeDressProduct.name} in ${variant.name}, front view`;
     detailBackImage.src = variant.back;
-    detailBackImage.alt = `${dressProduct.name} in ${variant.name}, back view`;
+    detailBackImage.alt = `${activeDressProduct.name} in ${variant.name}, back view`;
     document.getElementById("selectedDressColor").textContent = variant.name;
-    document.querySelectorAll("[data-dress-color]").forEach(button => {
+    dressColorOptions.querySelectorAll("[data-dress-color]").forEach(button => {
       button.setAttribute("aria-pressed", String(button.dataset.dressColor === color));
     });
   }
@@ -246,6 +285,7 @@ if (womenProductGrid) {
     const size = document.getElementById("dressSize");
     const quantityInput = document.getElementById("dressQuantity");
     const message = document.getElementById("dressActionMessage");
+    if (!activeDressProduct) return;
     if (!size.value) {
       message.textContent = "Please select a size first.";
       size.focus();
@@ -337,7 +377,10 @@ if (womenProductGrid) {
     viewCategories.setAttribute("aria-expanded", String(isExpanded));
     viewCategories.firstChild.textContent = isExpanded ? "Show Featured Categories " : "View All Categories ";
   });
-  document.querySelectorAll("[data-dress-color]").forEach(button => button.addEventListener("click", () => selectDressColor(button.dataset.dressColor)));
+  dressColorOptions.addEventListener("click", event => {
+    const button = event.target.closest("[data-dress-color]");
+    if (button) selectDressColor(button.dataset.dressColor);
+  });
   document.getElementById("backToWomenProducts").addEventListener("click", closeDressDetail);
   document.getElementById("dressWishlist").addEventListener("click", event => {
     const button = event.currentTarget;
